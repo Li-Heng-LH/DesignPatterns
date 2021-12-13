@@ -12,6 +12,13 @@ public class EmailNotificationListener implements EventListener {
 
     @Override
     public void update(String eventType, File file) {
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         System.out.println("Email to " + email + ": Someone has performed " +
                 eventType + " operation with the following file: " + file.getName());
     }
