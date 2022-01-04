@@ -7,6 +7,7 @@ public class Receiver implements Observer {
 
     @Override
     public void update(Observable o, Object msg) {
+        System.out.println(this);
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {

@@ -29,7 +29,9 @@ public class EventManager {
     public void notify(String eventType, File file) {
         List<EventListener> users = listeners.get(eventType);
         for (EventListener listener : users) {
-            listener.update(eventType, file);
+            new Thread(() -> {
+                listener.update(eventType, file);
+            }).start();
         }
     }
 }
